@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var contentOffset = CGFloat(0)
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-
+    @State private var showCertificates: Bool = false
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
@@ -33,16 +34,24 @@ struct ContentView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(colorScheme == .dark ? .white : Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
-
+        
     }
     
     var content: some View {
         VStack {
+            ProfileRow()
+                .onTapGesture {
+                    showCertificates.toggle()
+                }
+                .sheet(isPresented: $showCertificates, content: {
+                    CertificatesView()
+                })
+            
             VStack {
                 NavigationLink(destination: FAQView()) {
                     MenuRow()
                 }
-            
+                
                 divider
                 NavigationLink(destination: PackagesView()) {
                     MenuRow(title: "SwiftUI Packages", leftIcon: "square.stack.3d.up.fill")
@@ -53,13 +62,13 @@ struct ContentView: View {
                 Link(destination: URL(string: "https://www.youtube.com/channel/UCTIhfOopxukTIRkbXJ3kN-g")!, label: {
                     MenuRow(title: "YouTube Channel", leftIcon: "play.rectangle.fill", rightIcon: "link")
                 })
-            
+                
             }
             .padding(16)
-            .background(Color("Background1"))
+            .background(Color("Background 1"))
             .background(VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark))
             .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .stroke(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)), lineWidth: 1).blendMode(.overlay))
+                        .stroke(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)), lineWidth: 1).blendMode(.overlay))
             .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .padding(.top, 20)
             
@@ -77,7 +86,7 @@ struct ContentView: View {
         .padding(.bottom, 10)
     }
     
-
+    
     var divider: some View {
         Divider().background(Color.white).blendMode(.overlay)
     }
@@ -88,5 +97,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
             .previewDisplayName("iPhone 12 Pro Max")
-        }
+    }
 }
