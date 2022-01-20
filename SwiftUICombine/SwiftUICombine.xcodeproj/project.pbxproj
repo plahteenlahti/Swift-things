@@ -33,6 +33,8 @@
 		5B8649F32790AC9700731CA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8649F22790AC9700731CA2 /* ContentView.swift */; };
 		5B8649F52790AC9800731CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8649F42790AC9800731CA2 /* Assets.xcassets */; };
 		5B8649F82790AC9800731CA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8649F72790AC9800731CA2 /* Preview Assets.xcassets */; };
+		5BDD11CF279771C7004F543A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDD11CE279771C7004F543A /* FirebaseAnalytics */; };
+		5BDD11D1279771C7004F543A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDD11D0279771C7004F543A /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BDD11D1279771C7004F543A /* FirebaseMessaging in Frameworks */,
+				5BDD11CF279771C7004F543A /* FirebaseAnalytics in Frameworks */,
 				5B7D3D892793293E003E406F /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +136,7 @@
 			children = (
 				5B8649EF2790AC9700731CA2 /* SwiftUICombine */,
 				5B8649EE2790AC9700731CA2 /* Products */,
+				5BDD11CD279771C7004F543A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +177,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5BDD11CD279771C7004F543A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,6 +202,8 @@
 			name = SwiftUICombine;
 			packageProductDependencies = (
 				5B7D3D882793293E003E406F /* FirebaseFirestore */,
+				5BDD11CE279771C7004F543A /* FirebaseAnalytics */,
+				5BDD11D0279771C7004F543A /* FirebaseMessaging */,
 			);
 			productName = SwiftUICombine;
 			productReference = 5B8649ED2790AC9700731CA2 /* SwiftUICombine.app */;
@@ -492,6 +506,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B7D3D872793293E003E406F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		5BDD11CE279771C7004F543A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B7D3D872793293E003E406F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5BDD11D0279771C7004F543A /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B7D3D872793293E003E406F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

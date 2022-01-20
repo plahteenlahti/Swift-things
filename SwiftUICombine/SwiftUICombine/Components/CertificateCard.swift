@@ -17,22 +17,25 @@ struct CertificateCard: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             
-            content
+            if certificateVM.certificates.count > 0 {
+                content
+            } else {
+                Text("No certificate")
+            }
+            
         }
         .frame(maxWidth: 754, maxHeight: 465)
         .background(
-            RadialGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9921568627, green: 0.2470588235, blue: 0.2, alpha: 0.7949869118)).opacity(0.8), Color(#colorLiteral(red: 0.2980392157, green: 0, blue: 0.7843137255, alpha: 0.6)).opacity(0.2)]), center: .bottomTrailing, startRadius: 5, endRadius: 900)
+            RadialGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9921568627, green: 0.2470588235, blue: 0.2, alpha: 0.8)).opacity(0.8), Color(#colorLiteral(red: 0.2980392157, green: 0, blue: 0.7843137255, alpha: 0.6)).opacity(0.2)]), center: .bottomTrailing, startRadius: 5, endRadius: 900)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 30.0, style: .continuous)
                 .stroke(Color.white)
                 .blendMode(.overlay)
         )
-        .background(VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark))
+                .background(VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark))
         .clipShape(RoundedRectangle(cornerRadius: 30.0, style: .continuous))
-        .shadow(color: Color(#colorLiteral(red: 0.1647058824, green: 0.1098039216, blue: 0.3568627451, alpha: 1)).opacity(0.5), radius: 30, x: 0, y: 15)
     }
-    
     
     var content: some View {
         VStack(spacing: 20) {
@@ -40,7 +43,7 @@ struct CertificateCard: View {
                 .resizable()
                 .frame(width: 28, height: 28)
                 .padding(8)
-                .background(VisualEffectBlur(blurStyle: .systemThinMaterialDark))
+                            .background(VisualEffectBlur(blurStyle: .systemThinMaterialDark))
                 .mask(Circle())
                 .background(Circle().stroke(Color.white.opacity(0.4), lineWidth: 0.5))
             
@@ -62,13 +65,13 @@ struct CertificateCard: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
             
+            
             Text("successfully completed the online course \(certificateVM.certificates[selection].course) on \(certificateVM.certificates[selection].date)")
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7039374547)))
                 .frame(maxWidth: 250)
                 .fixedSize(horizontal: false, vertical: true)
-            
             
             Section {
                 Divider()
@@ -84,7 +87,6 @@ struct CertificateCard: View {
         }
     }
     
-    
     var instructorRow: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Design+Code Instructor:")
@@ -95,7 +97,7 @@ struct CertificateCard: View {
     var certificateDataRow: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Certificate no: DC-\(certificateVM.certificates[selection].id)")
-
+            
             Text("Certificate url: designcode.io/certificate/\(certificateVM.certificates[selection].id)")
         }
     }
@@ -104,7 +106,7 @@ struct CertificateCard: View {
 struct CertificateCard_Previews: PreviewProvider {
     static var previews: some View {
         CertificateCard(selection: Binding.constant(0))
-              .environmentObject(CertificateViewModel())
-              .environment(\.colorScheme, .dark)
+            .environmentObject(CertificateViewModel())
+            .environment(\.colorScheme, .dark)
     }
 }

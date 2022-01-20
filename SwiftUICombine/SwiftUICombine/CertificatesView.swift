@@ -14,15 +14,18 @@ struct CertificatesView: View {
     
     var body: some View {
         VStack {
-            TabView(selection: $selection) {
-                ForEach(certificateVM.certificates.indices, id: \.self) { index in
-                    CertificateCard(selection: $selection)
-                        .padding(.horizontal, 8)
-                        .environmentObject(certificateVM)
+            if certificateVM.certificates.count > 0 {
+                TabView(selection: $selection) {
+                    ForEach(certificateVM.certificates.indices, id: \.self) { index in
+                        CertificateCard(selection: $selection)
+                            .padding(.horizontal, 8)
+                            .environmentObject(certificateVM)
+                    }
                 }
+                .tabViewStyle(.page)
+            } else {
+                ProgressView()
             }
-            .tabViewStyle(PageTabViewStyle())
-            
         }
         .background(AccountBackground())
     }
