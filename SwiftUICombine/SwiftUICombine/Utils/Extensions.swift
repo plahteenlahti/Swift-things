@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+import FirebaseMessaging
+import UserNotifications
 
 extension View {
     func angularGradientGlow(colors: [Color]) -> some View {
@@ -40,5 +41,45 @@ extension Date {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         dateFormatter.setLocalizedDateFormatFromTemplate("MMMM d, yyyy")
         return dateFormatter.string(from: self)
+    }
+}
+
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+      let deviceToken:[String: String] = ["token": fcmToken ?? ""]
+        print("Device token: ", deviceToken)
+    }
+}
+
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+
+        print(userInfo)
+
+        completionHandler([[.banner, .badge, .sound]])
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("didRegisterForRemoteNotificationsWithDeviceToken")
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("didFailToRegisterForRemoteNotificationsWithError")
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+
+        print(userInfo)
+
+        completionHandler()
     }
 }

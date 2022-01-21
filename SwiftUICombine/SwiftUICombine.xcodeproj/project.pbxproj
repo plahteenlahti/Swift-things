@@ -33,6 +33,7 @@
 		5B8649F32790AC9700731CA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8649F22790AC9700731CA2 /* ContentView.swift */; };
 		5B8649F52790AC9800731CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8649F42790AC9800731CA2 /* Assets.xcassets */; };
 		5B8649F82790AC9800731CA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8649F72790AC9800731CA2 /* Preview Assets.xcassets */; };
+		5B8F3D40279B5B1300F3428E /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F3D3F279B5B1300F3428E /* NotificationViewModel.swift */; };
 		5BDD11CF279771C7004F543A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDD11CE279771C7004F543A /* FirebaseAnalytics */; };
 		5BDD11D1279771C7004F543A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDD11D0279771C7004F543A /* FirebaseMessaging */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,9 @@
 		5B8649F22790AC9700731CA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B8649F42790AC9800731CA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B8649F72790AC9800731CA2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5B8F3D3D279B562600F3428E /* SwiftUICombine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUICombine.entitlements; sourceTree = "<group>"; };
+		5B8F3D3E279B563100F3428E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5B8F3D3F279B5B1300F3428E /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			children = (
 				5B7D3D6C27919E33003E406F /* Package.swift */,
 				5B7D3D702791C4D5003E406F /* FAQ.swift */,
+				5B8F3D3F279B5B1300F3428E /* NotificationViewModel.swift */,
 				5B7D3D8A279329EE003E406F /* Certificate.swift */,
 			);
 			path = Models;
@@ -151,6 +156,8 @@
 		5B8649EF2790AC9700731CA2 /* SwiftUICombine */ = {
 			isa = PBXGroup;
 			children = (
+				5B8F3D3E279B563100F3428E /* Info.plist */,
+				5B8F3D3D279B562600F3428E /* SwiftUICombine.entitlements */,
 				5B7D3D8C27932FC9003E406F /* ViewModels */,
 				5B7D3D8527932837003E406F /* GoogleService-Info.plist */,
 				5B7D3D7427930AAA003E406F /* Utils */,
@@ -265,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B7D3D592790B35A003E406F /* TrackableScrollView.swift in Sources */,
+				5B8F3D40279B5B1300F3428E /* NotificationViewModel.swift in Sources */,
 				5B7D3D7827930FBF003E406F /* FAQRow.swift in Sources */,
 				5B7D3D5F2790D021003E406F /* MenuRow.swift in Sources */,
 				5B7D3D8B279329EE003E406F /* Certificate.swift in Sources */,
@@ -412,12 +420,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftUICombine/SwiftUICombine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICombine/Preview Content\"";
 				DEVELOPMENT_TEAM = 68A7FT779W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUICombine/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -442,12 +452,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftUICombine/SwiftUICombine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICombine/Preview Content\"";
 				DEVELOPMENT_TEAM = 68A7FT779W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUICombine/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
