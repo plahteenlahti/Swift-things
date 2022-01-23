@@ -30,6 +30,9 @@ struct ContentView: View {
             .frame(maxHeight: .infinity, alignment: .top)
             .background(AccountBackground())
             .navigationBarHidden(true)
+            .sheet(isPresented: $showCertificates, content: {
+                CertificatesView()
+            })
             
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -43,9 +46,14 @@ struct ContentView: View {
                 .onTapGesture {
                     showCertificates.toggle()
                 }
-                .sheet(isPresented: $showCertificates, content: {
-                    CertificatesView()
-                })
+            
+            VStack {
+                NotificationsRow()
+                divider
+                LiteModeRow()
+            }
+            .blurBackground()
+            .padding(.top, 20)
             
             VStack {
                 NavigationLink(destination: FAQView()) {
